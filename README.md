@@ -32,7 +32,10 @@ mini_projeto3/
 ├── consultas.py
 ├── README.md
 ├── requirements.txt
-└── .gitignore
+├── grafo.html
+├── grafo.css
+├── grafo.js        
+└── .gitignoreignore
 ```
 
 ---
@@ -190,6 +193,34 @@ O projeto realiza as seguintes consultas SPARQL:
 8. Listar todos os atores cadastrados.
 9. Contar a quantidade de filmes.
 10. Contar a quantidade de séries.
+
+---
+
+## Visualização da Ontologia
+
+Além das consultas SPARQL e da modelagem em RDF/OWL, o projeto possui uma visualização interativa da ontologia por meio de um grafo.
+
+A interface permite:
+
+* Visualizar todos os indivíduos da ontologia (filmes, séries, atores, diretores, gêneros e plataformas);
+* Explorar os relacionamentos definidos pelas propriedades de objeto (`possuiAtor`, `possuiDiretor`, `temGenero` e `disponivelEm`);
+* Consultar as propriedades de cada indivíduo ao selecionar um nó;
+* Buscar entidades pelo nome;
+* Filtrar por categoria e por tipo de relacionamento;
+* Navegar livremente pelo grafo utilizando zoom, arrastar nós, centralização e modo tela cheia.
+
+### Como executar
+
+1. Abra o arquivo `grafo.html` utilizando a extensão **Live Server** do VS Code (ou outro servidor HTTP local).
+2. O navegador exibirá a visualização interativa da ontologia.
+3. Utilize a busca, os filtros e o painel lateral para explorar os dados.
+
+### Tecnologias utilizadas
+
+* HTML5
+* CSS3
+* JavaScript
+* Vis Network
 
 ---
 
