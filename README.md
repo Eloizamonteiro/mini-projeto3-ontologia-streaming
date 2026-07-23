@@ -1,7 +1,8 @@
 # Mini Projeto 3 – Ontologia de Plataforma de Streaming
 
 ## Equipe 
-Maria Eloiza Monteiro de Souza
+Maria Eloiza Monteiro de Souza        
+
 Jamilly Melo Fernandes
 
 ## Descrição

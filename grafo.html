@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Visualização interativa da Ontologia de Plataforma de Streaming">
+  <title>Ontologia de Streaming — Grafo Interativo</title>
+
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="grafo.css">
+
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="cabecalho__texto">
+      <span class="etiqueta">MINI PROJETO 3</span>
+      <h1>Ontologia de Plataforma de Streaming</h1>
+      <p>
+        Explore filmes, séries, pessoas, gêneros e plataformas por meio
+        das relações definidas na base RDF/OWL.
+      </p>
+    </div>
+
+    <div class="cabecalho__acoes">
+      <button id="btnCentralizar" class="botao botao--claro" type="button">
+        Centralizar
+      </button>
+      <button id="btnTelaCheia" class="botao botao--transparente" type="button">
+        Tela cheia
+      </button>
+    </div>
+  </header>
+
+  <section class="resumo" aria-label="Resumo da ontologia">
+    <article class="indicador">
+      <strong id="totalObras">12</strong>
+      <span>Obras</span>
+    </article>
+    <article class="indicador">
+      <strong id="totalPessoas">14</strong>
+      <span>Pessoas</span>
+    </article>
+    <article class="indicador">
+      <strong id="totalGeneros">10</strong>
+      <span>Gêneros</span>
+    </article>
+    <article class="indicador">
+      <strong id="totalPlataformas">5</strong>
+      <span>Plataformas</span>
+    </article>
+    <article class="indicador">
+      <strong id="totalRelacoes">41</strong>
+      <span>Relações</span>
+    </article>
+  </section>
+
+  <main class="layout">
+    <aside class="painel">
+      <section class="painel__secao">
+        <div class="titulo-secao">
+          <span>Explorar</span>
+        </div>
+
+        <label for="busca">Buscar entidade</label>
+        <div class="campo-busca">
+          <input
+            id="busca"
+            type="search"
+            placeholder="Ex.: Interestelar"
+            autocomplete="off"
+          >
+        </div>
+
+        <label for="filtroTipo">Filtrar por categoria</label>
+        <select id="filtroTipo">
+          <option value="todos">Todas as categorias</option>
+          <option value="Filme">Filmes</option>
+          <option value="Serie">Séries</option>
+          <option value="Ator">Atores</option>
+          <option value="Diretor">Diretores</option>
+          <option value="Genero">Gêneros</option>
+          <option value="Plataforma">Plataformas</option>
+        </select>
+
+        <label for="filtroRelacao">Filtrar por relação</label>
+        <select id="filtroRelacao">
+          <option value="todas">Todas as relações</option>
+          <option value="possuiAtor">possuiAtor</option>
+          <option value="possuiDiretor">possuiDiretor</option>
+          <option value="temGenero">temGenero</option>
+          <option value="disponivelEm">disponivelEm</option>
+        </select>
+
+        <button id="btnLimpar" class="botao botao--principal botao--largo" type="button">
+          Limpar filtros
+        </button>
+      </section>
+
+      <section class="painel__secao">
+        <div class="titulo-secao">
+          <span>Legenda</span>
+        </div>
+
+        <ul class="legenda">
+          <li><span class="marcador marcador--filme"></span>Filme</li>
+          <li><span class="marcador marcador--serie"></span>Série</li>
+          <li><span class="marcador marcador--ator"></span>Ator</li>
+          <li><span class="marcador marcador--diretor"></span>Diretor</li>
+          <li><span class="marcador marcador--genero"></span>Gênero</li>
+          <li><span class="marcador marcador--plataforma"></span>Plataforma</li>
+        </ul>
+      </section>
+
+      <section class="painel__secao painel__secao--detalhes">
+        <div class="titulo-secao">
+          <span>Detalhes do nó</span>
+        </div>
+
+        <div id="detalhesNo" class="detalhes">
+          <div class="estado-vazio">
+            <div class="icone-vazio">◉</div>
+            <p>Clique em um nó para visualizar seus dados e relacionamentos.</p>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <section class="visualizacao">
+      <div class="visualizacao__topo">
+        <div>
+          <strong>Grafo de indivíduos</strong>
+          <span id="statusVisualizacao">Mostrando toda a ontologia</span>
+        </div>
+
+        <div class="dicas">
+          <span>Arraste</span>
+          <span>Use o zoom</span>
+          <span>Clique nos nós</span>
+        </div>
+      </div>
+
+      <div id="grafo" aria-label="Grafo interativo da ontologia"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Construído com RDF, OWL, SPARQL, Python, RDFLib e Vis Network.
+    </p>
+  </footer>
+
+  <script src="grafo.js"></script>
+</body>
+</html>
