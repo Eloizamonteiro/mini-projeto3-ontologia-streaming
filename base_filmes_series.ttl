@@ -1,0 +1,380 @@
+@prefix : <http://www.exemplo.org/streaming#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.exemplo.org/streaming>
+    rdf:type owl:Ontology ;
+    rdfs:label "Ontologia de Plataforma de Streaming"@pt ;
+    rdfs:comment "Ontologia para representar filmes, séries, atores, diretores, gêneros e plataformas de streaming."@pt .
+
+#################################################################
+# Classes
+#################################################################
+
+:ObraAudiovisual rdf:type owl:Class ;
+    rdfs:label "Obra Audiovisual"@pt .
+
+:Filme rdf:type owl:Class ;
+    rdfs:subClassOf :ObraAudiovisual ;
+    rdfs:label "Filme"@pt .
+
+:Serie rdf:type owl:Class ;
+    rdfs:subClassOf :ObraAudiovisual ;
+    rdfs:label "Série"@pt .
+
+:Pessoa rdf:type owl:Class ;
+    rdfs:label "Pessoa"@pt .
+
+:Ator rdf:type owl:Class ;
+    rdfs:subClassOf :Pessoa ;
+    rdfs:label "Ator"@pt .
+
+:Diretor rdf:type owl:Class ;
+    rdfs:subClassOf :Pessoa ;
+    rdfs:label "Diretor"@pt .
+
+:Genero rdf:type owl:Class ;
+    rdfs:label "Gênero"@pt .
+
+:Plataforma rdf:type owl:Class ;
+    rdfs:label "Plataforma de Streaming"@pt .
+
+#################################################################
+# Object Properties
+#################################################################
+
+:atuaEm rdf:type owl:ObjectProperty ;
+    rdfs:domain :Ator ;
+    rdfs:range :ObraAudiovisual ;
+    rdfs:label "atua em"@pt .
+
+:possuiAtor rdf:type owl:ObjectProperty ;
+    owl:inverseOf :atuaEm ;
+    rdfs:domain :ObraAudiovisual ;
+    rdfs:range :Ator ;
+    rdfs:label "possui ator"@pt .
+
+:dirige rdf:type owl:ObjectProperty ;
+    rdfs:domain :Diretor ;
+    rdfs:range :ObraAudiovisual ;
+    rdfs:label "dirige"@pt .
+
+:possuiDiretor rdf:type owl:ObjectProperty ;
+    owl:inverseOf :dirige ;
+    rdfs:domain :ObraAudiovisual ;
+    rdfs:range :Diretor ;
+    rdfs:label "possui diretor"@pt .
+
+:temGenero rdf:type owl:ObjectProperty ;
+    rdfs:domain :ObraAudiovisual ;
+    rdfs:range :Genero ;
+    rdfs:label "tem gênero"@pt .
+
+:disponivelEm rdf:type owl:ObjectProperty ;
+    rdfs:domain :ObraAudiovisual ;
+    rdfs:range :Plataforma ;
+    rdfs:label "disponível em"@pt .
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+:titulo rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ObraAudiovisual ;
+    rdfs:range xsd:string ;
+    rdfs:label "título"@pt .
+
+:anoLancamento rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ObraAudiovisual ;
+    rdfs:range xsd:gYear ;
+    rdfs:label "ano de lançamento"@pt .
+
+:nota rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ObraAudiovisual ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "nota"@pt .
+
+:duracaoMinutos rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Filme ;
+    rdfs:range xsd:integer ;
+    rdfs:label "duração em minutos"@pt .
+
+:numeroTemporadas rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Serie ;
+    rdfs:range xsd:integer ;
+    rdfs:label "número de temporadas"@pt .
+
+:classificacaoIndicativa rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ObraAudiovisual ;
+    rdfs:range xsd:string ;
+    rdfs:label "classificação indicativa"@pt .
+
+:nome rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Pessoa ;
+    rdfs:range xsd:string ;
+    rdfs:label "nome"@pt .
+
+#################################################################
+# Gêneros
+#################################################################
+
+:acao rdf:type :Genero ;
+    rdfs:label "Ação"@pt .
+
+:aventura rdf:type :Genero ;
+    rdfs:label "Aventura"@pt .
+
+:drama rdf:type :Genero ;
+    rdfs:label "Drama"@pt .
+
+:comedia rdf:type :Genero ;
+    rdfs:label "Comédia"@pt .
+
+:ficcaoCientifica rdf:type :Genero ;
+    rdfs:label "Ficção Científica"@pt .
+
+:suspense rdf:type :Genero ;
+    rdfs:label "Suspense"@pt .
+
+:fantasia rdf:type :Genero ;
+    rdfs:label "Fantasia"@pt .
+
+:animacao rdf:type :Genero ;
+    rdfs:label "Animação"@pt .
+
+:terror rdf:type :Genero ;
+    rdfs:label "Terror"@pt .
+
+:romance rdf:type :Genero ;
+    rdfs:label "Romance"@pt .
+
+#################################################################
+# Plataformas de Streaming
+#################################################################
+
+:netflix rdf:type :Plataforma ;
+    rdfs:label "Netflix"@pt .
+
+:primeVideo rdf:type :Plataforma ;
+    rdfs:label "Prime Video"@pt .
+
+:max rdf:type :Plataforma ;
+    rdfs:label "Max"@pt .
+
+:disneyPlus rdf:type :Plataforma ;
+    rdfs:label "Disney+"@pt .
+
+:appleTVPlus rdf:type :Plataforma ;
+    rdfs:label "Apple TV+"@pt .
+
+#################################################################
+# Diretores
+#################################################################
+
+:christopherNolan
+    rdf:type :Diretor ;
+    :nome "Christopher Nolan" .
+
+:lanaWachowski
+    rdf:type :Diretor ;
+    :nome "Lana Wachowski" .
+
+:bongJoonHo
+    rdf:type :Diretor ;
+    :nome "Bong Joon-ho" .
+
+:ryanCoogler
+    rdf:type :Diretor ;
+    :nome "Ryan Coogler" .
+
+:vinceGilligan
+    rdf:type :Diretor ;
+    :nome "Vince Gilligan" .
+
+:timBurton
+    rdf:type :Diretor ;
+    :nome "Tim Burton" .
+
+#################################################################
+# Atores
+#################################################################
+
+:leonardoDiCaprio
+    rdf:type :Ator ;
+    :nome "Leonardo DiCaprio" .
+
+:matthewMcConaughey
+    rdf:type :Ator ;
+    :nome "Matthew McConaughey" .
+
+:keanuReeves
+    rdf:type :Ator ;
+    :nome "Keanu Reeves" .
+
+:joaquinPhoenix
+    rdf:type :Ator ;
+    :nome "Joaquin Phoenix" .
+
+:chadwickBoseman
+    rdf:type :Ator ;
+    :nome "Chadwick Boseman" .
+
+:millieBobbyBrown
+    rdf:type :Ator ;
+    :nome "Millie Bobby Brown" .
+
+:bryanCranston
+    rdf:type :Ator ;
+    :nome "Bryan Cranston" .
+
+:jennaOrtega
+    rdf:type :Ator ;
+    :nome "Jenna Ortega" .
+
+#################################################################
+# Filmes
+#################################################################
+
+:aOrigem
+    rdf:type :Filme ;
+    :titulo "A Origem" ;
+    :anoLancamento "2010"^^xsd:gYear ;
+    :nota 8.8 ;
+    :duracaoMinutos 148 ;
+    :classificacaoIndicativa "14 anos" ;
+    :temGenero :ficcaoCientifica ;
+    :disponivelEm :max ;
+    :possuiDiretor :christopherNolan ;
+    :possuiAtor :leonardoDiCaprio .
+
+:interestelar
+    rdf:type :Filme ;
+    :titulo "Interestelar" ;
+    :anoLancamento "2014"^^xsd:gYear ;
+    :nota 8.7 ;
+    :duracaoMinutos 169 ;
+    :classificacaoIndicativa "10 anos" ;
+    :temGenero :ficcaoCientifica ;
+    :disponivelEm :max ;
+    :possuiDiretor :christopherNolan ;
+    :possuiAtor :matthewMcConaughey .
+
+:matrix
+    rdf:type :Filme ;
+    :titulo "Matrix" ;
+    :anoLancamento "1999"^^xsd:gYear ;
+    :nota 8.7 ;
+    :duracaoMinutos 136 ;
+    :classificacaoIndicativa "16 anos" ;
+    :temGenero :ficcaoCientifica ;
+    :disponivelEm :primeVideo ;
+    :possuiDiretor :lanaWachowski ;
+    :possuiAtor :keanuReeves .
+
+:parasita
+    rdf:type :Filme ;
+    :titulo "Parasita" ;
+    :anoLancamento "2019"^^xsd:gYear ;
+    :nota 8.5 ;
+    :duracaoMinutos 132 ;
+    :classificacaoIndicativa "16 anos" ;
+    :temGenero :drama ;
+    :disponivelEm :primeVideo ;
+    :possuiDiretor :bongJoonHo .
+
+:coringa
+    rdf:type :Filme ;
+    :titulo "Coringa" ;
+    :anoLancamento "2019"^^xsd:gYear ;
+    :nota 8.4 ;
+    :duracaoMinutos 122 ;
+    :classificacaoIndicativa "16 anos" ;
+    :temGenero :drama ;
+    :disponivelEm :max ;
+    :possuiDiretor :timBurton ;
+    :possuiAtor :joaquinPhoenix .
+
+:panteraNegra
+    rdf:type :Filme ;
+    :titulo "Pantera Negra" ;
+    :anoLancamento "2018"^^xsd:gYear ;
+    :nota 7.3 ;
+    :duracaoMinutos 134 ;
+    :classificacaoIndicativa "12 anos" ;
+    :temGenero :acao ;
+    :disponivelEm :disneyPlus ;
+    :possuiDiretor :ryanCoogler ;
+    :possuiAtor :chadwickBoseman .
+
+#################################################################
+# Séries
+#################################################################
+
+:strangerThings
+    rdf:type :Serie ;
+    :titulo "Stranger Things" ;
+    :anoLancamento "2016"^^xsd:gYear ;
+    :nota 8.7 ;
+    :numeroTemporadas 5 ;
+    :classificacaoIndicativa "16 anos" ;
+    :temGenero :ficcaoCientifica ;
+    :disponivelEm :netflix ;
+    :possuiDiretor :vinceGilligan ;
+    :possuiAtor :millieBobbyBrown .
+
+:breakingBad
+    rdf:type :Serie ;
+    :titulo "Breaking Bad" ;
+    :anoLancamento "2008"^^xsd:gYear ;
+    :nota 9.5 ;
+    :numeroTemporadas 5 ;
+    :classificacaoIndicativa "18 anos" ;
+    :temGenero :drama ;
+    :disponivelEm :netflix ;
+    :possuiDiretor :vinceGilligan ;
+    :possuiAtor :bryanCranston .
+
+:dark
+    rdf:type :Serie ;
+    :titulo "Dark" ;
+    :anoLancamento "2017"^^xsd:gYear ;
+    :nota 8.7 ;
+    :numeroTemporadas 3 ;
+    :classificacaoIndicativa "16 anos" ;
+    :temGenero :ficcaoCientifica ;
+    :disponivelEm :netflix .
+
+:wandinha
+    rdf:type :Serie ;
+    :titulo "Wandinha" ;
+    :anoLancamento "2022"^^xsd:gYear ;
+    :nota 8.1 ;
+    :numeroTemporadas 2 ;
+    :classificacaoIndicativa "14 anos" ;
+    :temGenero :fantasia ;
+    :disponivelEm :netflix ;
+    :possuiDiretor :timBurton ;
+    :possuiAtor :jennaOrtega .
+
+:arcane
+    rdf:type :Serie ;
+    :titulo "Arcane" ;
+    :anoLancamento "2021"^^xsd:gYear ;
+    :nota 9.0 ;
+    :numeroTemporadas 2 ;
+    :classificacaoIndicativa "16 anos" ;
+    :temGenero :animacao ;
+    :disponivelEm :netflix .
+
+:theLastOfUs
+    rdf:type :Serie ;
+    :titulo "The Last of Us" ;
+    :anoLancamento "2023"^^xsd:gYear ;
+    :nota 8.8 ;
+    :numeroTemporadas 2 ;
+    :classificacaoIndicativa "16 anos" ;
+    :temGenero :drama ;
+    :disponivelEm :max .
+
