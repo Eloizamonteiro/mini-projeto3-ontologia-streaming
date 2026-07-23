@@ -35,7 +35,7 @@ mini_projeto3/
 ├── grafo.html
 ├── grafo.css
 ├── grafo.js        
-└── .gitignoreignore
+└── .gitignore
 ```
 
 ---
@@ -214,6 +214,8 @@ A interface permite:
 1. Abra o arquivo `grafo.html` utilizando a extensão **Live Server** do VS Code (ou outro servidor HTTP local).
 2. O navegador exibirá a visualização interativa da ontologia.
 3. Utilize a busca, os filtros e o painel lateral para explorar os dados.
+
+Você pode acessar a visualização diretamente pelo arquivo `http://127.0.0.1:5500/grafo.html`.
 
 ### Tecnologias utilizadas
 
