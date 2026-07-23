@@ -9,9 +9,7 @@
     rdfs:label "Ontologia de Plataforma de Streaming"@pt ;
     rdfs:comment "Ontologia para representar filmes, séries, atores, diretores, gêneros e plataformas de streaming."@pt .
 
-#################################################################
 # Classes
-#################################################################
 
 :ObraAudiovisual rdf:type owl:Class ;
     rdfs:label "Obra Audiovisual"@pt .
@@ -41,9 +39,7 @@
 :Plataforma rdf:type owl:Class ;
     rdfs:label "Plataforma de Streaming"@pt .
 
-#################################################################
 # Object Properties
-#################################################################
 
 :atuaEm rdf:type owl:ObjectProperty ;
     rdfs:domain :Ator ;
@@ -77,9 +73,7 @@
     rdfs:range :Plataforma ;
     rdfs:label "disponível em"@pt .
 
-#################################################################
 # Datatype Properties
-#################################################################
 
 :titulo rdf:type owl:DatatypeProperty ;
     rdfs:domain :ObraAudiovisual ;
@@ -116,9 +110,7 @@
     rdfs:range xsd:string ;
     rdfs:label "nome"@pt .
 
-#################################################################
 # Gêneros
-#################################################################
 
 :acao rdf:type :Genero ;
     rdfs:label "Ação"@pt .
@@ -150,9 +142,7 @@
 :romance rdf:type :Genero ;
     rdfs:label "Romance"@pt .
 
-#################################################################
 # Plataformas de Streaming
-#################################################################
 
 :netflix rdf:type :Plataforma ;
     rdfs:label "Netflix"@pt .
@@ -169,9 +159,7 @@
 :appleTVPlus rdf:type :Plataforma ;
     rdfs:label "Apple TV+"@pt .
 
-#################################################################
 # Diretores
-#################################################################
 
 :christopherNolan
     rdf:type :Diretor ;
@@ -197,9 +185,7 @@
     rdf:type :Diretor ;
     :nome "Tim Burton" .
 
-#################################################################
 # Atores
-#################################################################
 
 :leonardoDiCaprio
     rdf:type :Ator ;
@@ -233,9 +219,7 @@
     rdf:type :Ator ;
     :nome "Jenna Ortega" .
 
-#################################################################
 # Filmes
-#################################################################
 
 :aOrigem
     rdf:type :Filme ;
@@ -308,9 +292,7 @@
     :possuiDiretor :ryanCoogler ;
     :possuiAtor :chadwickBoseman .
 
-#################################################################
 # Séries
-#################################################################
 
 :strangerThings
     rdf:type :Serie ;
